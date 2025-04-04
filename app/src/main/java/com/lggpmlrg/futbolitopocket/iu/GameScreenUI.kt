@@ -1,7 +1,7 @@
-// GameScreenUI.kt
-// Dibuja el campo, pelota, marcador y visualiza porterías escalando las coordenadas al tamaño real del canvas.
-// Usa SensorManager nativo y traduce las coordenadas del modelo (433x693) al tamaño del dispositivo.
-
+// Este archivo se encarga de dibujar el campo, pelota, marcador y visualiza
+// porterias escalando coordenadas de estas al tamaño real del lienzo de trabajo.
+// Usa SensorManager nativo*
+//sensor-composer presentaba detalles en su implementación
 package com.lggpmlrg.futbolitopocket.iu
 
 import android.content.Context
@@ -107,8 +107,7 @@ fun GameScreen(xAccel: Float, yAccel: Float, viewModel: GameViewModel) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Box(modifier = Modifier.fillMaxSize()) {
-            val painter = painterResource(id = R.drawable.cancha_futbolito)
+        Box(modifier = Modifier.fillMaxSize()) { val painter = painterResource(id = R.drawable.cancha_futbolito)
 
 
                     Image(

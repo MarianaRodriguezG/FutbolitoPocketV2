@@ -11,16 +11,16 @@ class GameViewModel : ViewModel() {
     // Dimensiones reales de la imagen
     val fieldWidth = 433f
     val fieldHeight = 693f
-    val ballRadius = 20f // pelota más pequeña
+    val ballRadius = 10f //radio de la pelotita
 
-    // Zonas de portería (centradas horizontalmente)
+    // Zonas de las porterías
     val goalLeft = fieldWidth / 2 - 70f
     val goalRight = fieldWidth / 2 + 70f
     val goalHeight = 50f
 
     private val _uiState = mutableStateOf(GameState())
     val uiState: State<GameState> = _uiState
-
+// esta función permite actualizar las físicas, como posición, velocidad, etc
     fun updatePhysics(xAccel: Float, yAccel: Float) {
         val state = _uiState.value
 
@@ -41,7 +41,7 @@ class GameViewModel : ViewModel() {
             xPos = min(max(xPos, ballRadius), fieldWidth - ballRadius)
         }
 
-        // Gol en la portería superior
+        // gol en la porteria superior
         if (yPos - ballRadius <= 0 && isInsideGoalX) {
             scoreLeft++
             xPos = fieldWidth / 2
@@ -49,7 +49,7 @@ class GameViewModel : ViewModel() {
             xSpeed = 0f
             ySpeed = 0f
         }
-        // Gol en la portería inferior
+        // gol en la porteria inferior
         else if (yPos + ballRadius >= fieldHeight && isInsideGoalX) {
             scoreRight++
             xPos = fieldWidth / 2
@@ -57,7 +57,7 @@ class GameViewModel : ViewModel() {
             xSpeed = 0f
             ySpeed = 0f
         }
-        // Rebote en esquinas (cuando NO es portería)
+        // rebote en las esquinas para cuando no se trata de una porteria
         else if (
             (yPos - ballRadius < 0 && !isInsideGoalX) ||
             (yPos + ballRadius > fieldHeight && !isInsideGoalX)
@@ -69,7 +69,7 @@ class GameViewModel : ViewModel() {
         _uiState.value = GameState(xPos, yPos, xSpeed, ySpeed, scoreLeft, scoreRight)
     }
 }
-
+// este es el estado del juego, es decir, el score del partido
 data class GameState(
     val xPos: Float = 433f / 2,
     val yPos: Float = 693f / 2,

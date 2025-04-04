@@ -1,4 +1,4 @@
-// Este archivo se encarga de dibujar el campo, pelota, marcador y visualiza
+// Este archivo se encarga de dibujar el campo, pelota, marcador y visualizar
 // porterias escalando coordenadas de estas al tamaño real del lienzo de trabajo.
 // Usa SensorManager nativo*
 //sensor-composer presentaba detalles en su implementación

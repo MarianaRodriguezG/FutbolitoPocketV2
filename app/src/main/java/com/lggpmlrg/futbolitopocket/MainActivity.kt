@@ -1,47 +1,25 @@
+// MainActivity.kt
 package com.lggpmlrg.futbolitopocket
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.lggpmlrg.futbolitopocket.ui.theme.FutbolitoPocketTheme
+import androidx.activity.viewModels
+import androidx.compose.material3.MaterialTheme
+import com.lggpmlrg.futbolitopocket.iu.GameScreenWithComposeSensors
 
+// Esta clase representa la actividad principal de la app.
+// Se encarga de iniciar la UI y conectar el ViewModel.
 class MainActivity : ComponentActivity() {
+
+    private val gameViewModel: GameViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            FutbolitoPocketTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+            MaterialTheme {
+                GameScreenWithComposeSensors(gameViewModel)
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    FutbolitoPocketTheme {
-        Greeting("Android")
     }
 }

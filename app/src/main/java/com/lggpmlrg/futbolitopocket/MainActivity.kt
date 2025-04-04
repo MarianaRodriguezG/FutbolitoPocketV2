@@ -1,4 +1,3 @@
-// MainActivity.kt
 package com.lggpmlrg.futbolitopocket
 
 import android.os.Bundle
@@ -9,7 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import com.lggpmlrg.futbolitopocket.iu.GameScreenWithComposeSensors
 
 // Esta clase representa la actividad principal de la app.
-// Se encarga de iniciar la UI y conectar el ViewModel.
+// se encarga de iniciar la UI y conectar con el ViewModel.
 class MainActivity : ComponentActivity() {
 
     private val gameViewModel: GameViewModel by viewModels()

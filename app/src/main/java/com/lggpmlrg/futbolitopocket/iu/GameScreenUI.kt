@@ -3,7 +3,7 @@
 // Usa SensorManager nativo*
 //sensor-composer presentaba detalles en su implementación
 package com.lggpmlrg.futbolitopocket.iu
-
+//importaciones necesarias
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -28,7 +28,7 @@ import com.lggpmlrg.futbolitopocket.GameViewModel
 import com.lggpmlrg.futbolitopocket.R
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.style.TextAlign
+//import androidx.compose.ui.text.style.TextAlign
 
 @Composable
 fun rememberAccelerometerValues(context: Context): Triple<Float, Float, Float> {
